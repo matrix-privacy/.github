@@ -44,13 +44,13 @@ Optional public data
 | [shared-models](https://github.com/matrix-privacy/shared-models) | Network configuration, shared types, RPC and gas utilities |
 | [engine](https://github.com/matrix-privacy/engine) | Keys, notes, encrypted storage, Merkle trees, proofs and contract wrappers |
 | [wallet](https://github.com/matrix-privacy/wallet) | App-facing provider, wallet, balance, history and transaction services |
-| [matrix-contracts](https://github.com/defi256-labs/matrix-contracts) | Matrix, Accumulator, Verifier, TokenVault and RelayAdapt contracts |
-| [matrix-circuits](https://github.com/defi256-labs/matrix-circuits) | Groth16 circuits and artifact build inputs |
+| [matrix-contracts](https://github.com/matrix-privacy/contracts) | Matrix, Accumulator, Verifier, TokenVault and RelayAdapt contracts |
+| [matrix-circuits](https://github.com/matrix-privacy/circuits) | Groth16 circuits and artifact build inputs |
 | [subgraph](https://github.com/matrix-privacy/subgraph) | Optional indexing for `AccumulatorStateUpdate` events |
 | [cookbook](https://github.com/matrix-privacy/cookbook) | Future DeFi recipe and action composition |
 | [frontend](https://github.com/matrix-privacy/frontend) | Desktop Alpha and future browser client work |
 | [waku-broadcaster-client](https://github.com/matrix-privacy/waku-broadcaster-client) | Deferred Waku broadcaster discovery and submission client |
-| [matrix-design](https://github.com/defi256-labs/matrix-design) | Architecture, operations, acceptance criteria and delivery status |
+| [matrix-design](https://github.com/matrix-privacy/design) | Architecture, operations, acceptance criteria and delivery status |
 
 ### SDK releases
 
@@ -85,8 +85,8 @@ are not enabled in the Alpha.
   mainnet deployment remain open work.
 
 For the exact release gate and open tasks, see
-[Sepolia Alpha acceptance](https://github.com/defi256-labs/matrix-design/blob/main/10_alpha_acceptance.md)
-and the [delivery TODO](https://github.com/defi256-labs/matrix-design/blob/main/16_todo.md).
+[Sepolia Alpha acceptance](https://github.com/matrix-privacy/design/blob/main/10_alpha_acceptance.md)
+and the [delivery TODO](https://github.com/matrix-privacy/design/blob/main/16_todo.md).
 
 ---
 
@@ -119,13 +119,13 @@ Unshield，并由用户的公开钱包直接提交交易**。这是测试网软�
 | [shared-models](https://github.com/matrix-privacy/shared-models) | 网络配置、公共类型、RPC 与 gas 工具 |
 | [engine](https://github.com/matrix-privacy/engine) | 密钥、note、加密存储、Merkle tree、证明和合约封装 |
 | [wallet](https://github.com/matrix-privacy/wallet) | 面向应用的 provider、钱包、余额、历史和交易服务 |
-| [matrix-contracts](https://github.com/defi256-labs/matrix-contracts) | Matrix、Accumulator、Verifier、TokenVault 与 RelayAdapt |
-| [matrix-circuits](https://github.com/defi256-labs/matrix-circuits) | Groth16 电路和 artifact 构建输入 |
+| [matrix-contracts](https://github.com/matrix-privacy/contracts) | Matrix、Accumulator、Verifier、TokenVault 与 RelayAdapt |
+| [matrix-circuits](https://github.com/matrix-privacy/circuits) | Groth16 电路和 artifact 构建输入 |
 | [subgraph](https://github.com/matrix-privacy/subgraph) | `AccumulatorStateUpdate` 的可选索引 |
 | [cookbook](https://github.com/matrix-privacy/cookbook) | 后续 DeFi recipe 与 action 编排 |
 | [frontend](https://github.com/matrix-privacy/frontend) | Desktop Alpha 与浏览器客户端工作 |
 | [waku-broadcaster-client](https://github.com/matrix-privacy/waku-broadcaster-client) | 延后的 Waku broadcaster 发现与提交客户端 |
-| [matrix-design](https://github.com/defi256-labs/matrix-design) | 架构、运维、验收标准与推进状态 |
+| [matrix-design](https://github.com/matrix-privacy/design) | 架构、运维、验收标准与推进状态 |
 
 ### SDK 版本
 
@@ -157,5 +157,5 @@ RelayAdapt 的 DeFi action。
 - 合约公开验证、签名桌面发行、浏览器发行、独立审计和主网部署仍未完成。
 
 准确的发布门槛和剩余任务见
-[Sepolia Alpha 验收](https://github.com/defi256-labs/matrix-design/blob/main/10_alpha_acceptance.md)
-与 [推进清单](https://github.com/defi256-labs/matrix-design/blob/main/16_todo.md)。
+[Sepolia Alpha 验收](https://github.com/matrix-privacy/design/blob/main/10_alpha_acceptance.md)
+与 [推进清单](https://github.com/matrix-privacy/design/blob/main/16_todo.md)。
