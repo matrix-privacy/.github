@@ -103,8 +103,11 @@ chosen operator or on-chain observers.
 
 ### Published ERC20 Alpha SDK snapshot
 
+Current source builds use Node.js 24 and pnpm 12.3.4. Contracts compile with Solidity 0.8.36;
+see the [toolchain upgrade](https://github.com/matrix-privacy/design/blob/main/26_node24_pnpm_solidity_upgrade.md).
+
 ```bash
-npm install --save-exact \
+pnpm add --save-exact \
   @matrix-privacy/shared-models@0.0.11 \
   @matrix-privacy/engine@0.0.6 \
   @matrix-privacy/wallet@0.0.17
@@ -248,8 +251,11 @@ strategy account 也会关联其活动。传输加密保护传输中的提交内
 
 ### 已发布 ERC20 Alpha SDK 快照
 
+当前源码使用 Node.js 24 与 pnpm 12.3.4 构建，合约编译器为 Solidity 0.8.36，详见
+[工具链升级记录](https://github.com/matrix-privacy/design/blob/main/26_node24_pnpm_solidity_upgrade.md)。
+
 ```bash
-npm install --save-exact \
+pnpm add --save-exact \
   @matrix-privacy/shared-models@0.0.11 \
   @matrix-privacy/engine@0.0.6 \
   @matrix-privacy/wallet@0.0.17
