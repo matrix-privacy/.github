@@ -81,6 +81,10 @@ execution-account activity are public; re-shielding does not erase that history.
 links its activity. Transport encryption protects submission contents in transit, not against the
 chosen operator or on-chain observers.
 
+Account batches revert when a call fails. Wallet checks tracked assets and token approvals after confirmation;
+remaining assets prevent closure and archive. The Account adds no generic state assertions. Protocol calldata
+controls trade limits, and quoted private outputs use the pool fees available at quote time.
+
 ### Projects
 
 | Project | Purpose | State |
@@ -223,6 +227,10 @@ EIP-7702 需要底层链与 RPC 支持。任意调用能力不保证每个协议
 DeFi 头寸与执行账户活动是公开的，重新 Shield 不会抹除这些历史，复用
 strategy account 也会关联其活动。传输加密保护传输中的提交内容，不对选定 operator 或链上
 观察者隐藏执行内容。
+
+Account 批量调用在任一调用失败时回滚。Wallet 在确认后检查已跟踪资产与 token 授权，残留资产会
+阻止关闭和归档；Account 不附加通用状态断言。成交限制由协议 calldata 控制，私有输出报价使用
+报价时的池费率。
 
 ### 项目组成
 
