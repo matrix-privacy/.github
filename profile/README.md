@@ -75,7 +75,8 @@ Public data services provide verifiable public chain data; wallet keys, note dec
 remain local. Account execution requires only the pinned Account implementation and privacy pool configuration.
 
 EIP-7702 requires chain and RPC support. Arbitrary calls do not guarantee compatibility with every
-protocol: caller-code checks, signatures, and exit paths require validation. DeFi positions and
+protocol: caller-code checks, signatures, and exit paths require validation. dApp signing uses ordinary
+ECDSA; flows that require an ERC-1271 callback are unsupported. DeFi positions and
 execution-account activity are public; re-shielding does not erase that history. Strategy-account reuse
 links its activity. Transport encryption protects submission contents in transit, not against the
 chosen operator or on-chain observers.
@@ -218,7 +219,8 @@ Web / Desktop
 已固定的 Account 实现与隐私池配置。
 
 EIP-7702 需要底层链与 RPC 支持。任意调用能力不保证每个协议都兼容：caller code 检查、签名和
-退出路径都需要验证。DeFi 头寸与执行账户活动是公开的，重新 Shield 不会抹除这些历史，复用
+退出路径都需要验证。dApp 使用普通 ECDSA 签名，暂不支持强制 ERC-1271 回调的流程。
+DeFi 头寸与执行账户活动是公开的，重新 Shield 不会抹除这些历史，复用
 strategy account 也会关联其活动。传输加密保护传输中的提交内容，不对选定 operator 或链上
 观察者隐藏执行内容。
 
