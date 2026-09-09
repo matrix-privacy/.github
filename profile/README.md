@@ -103,7 +103,8 @@ chosen operator or on-chain observers.
 
 ### Published ERC20 Alpha SDK snapshot
 
-Current source builds use Node.js 24 and pnpm 12.3.4. Contracts compile with Solidity 0.8.36;
+Current source builds use Node.js 24 and pnpm 12.3.4. Contracts use Solidity 0.8.36 and OpenZeppelin 5.7.0
+for fresh deployments;
 see the [toolchain upgrade](https://github.com/matrix-privacy/design/blob/main/26_node24_pnpm_solidity_upgrade.md).
 
 ```bash
@@ -133,7 +134,7 @@ Deployed ERC20 Alpha baseline, July 20, 2026:
 
 7702 implementation checkpoint, September 9, 2026:
 
-- The consolidated local verification passed 20/20 steps, covering contracts, SDKs, real Groth16
+- The consolidated local verification passed 21/21 steps, covering contracts, SDKs, real Groth16
   direct/HTTP execution, independent recovery, browser/Worker flows, and clean candidate installation.
 - Local protocol forks exercised Uniswap/Aave interaction and recovery; this is evidence for those
   scenarios, not a certification of arbitrary DeFi compatibility.
@@ -251,7 +252,8 @@ strategy account 也会关联其活动。传输加密保护传输中的提交内
 
 ### 已发布 ERC20 Alpha SDK 快照
 
-当前源码使用 Node.js 24 与 pnpm 12.3.4 构建，合约编译器为 Solidity 0.8.36，详见
+当前源码使用 Node.js 24 与 pnpm 12.3.4 构建，合约采用 Solidity 0.8.36 与 OpenZeppelin 5.7.0
+进行全新部署，详见
 [工具链升级记录](https://github.com/matrix-privacy/design/blob/main/26_node24_pnpm_solidity_upgrade.md)。
 
 ```bash
@@ -278,7 +280,7 @@ pnpm add --save-exact \
 
 7702 实现检查点，2026 年 9 月 9 日：
 
-- 综合本地验证 20/20 步骤通过，覆盖合约、SDK、真实 Groth16 直接/HTTP 执行、独立恢复、
+- 综合本地验证 21/21 步骤通过，覆盖合约、SDK、真实 Groth16 直接/HTTP 执行、独立恢复、
   browser/Worker 流程和候选包干净安装。
 - 本地协议 fork 覆盖 Uniswap/Aave 交互与恢复；这些证据只对应已测试场景，不代表任意 DeFi
   协议都已通过兼容性认证。
