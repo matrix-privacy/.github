@@ -46,6 +46,8 @@ integration tests are implemented; audited public deployment and product release
 - **HTTP submission:** clients choose direct submission or a configured HTTPS operator. Signed fee
   offers, encrypted requests, durable journals, and idempotent retries support sponsored transactions.
 - **Account management:** signed Account calls close positions, revoke approvals, and sweep tracked assets.
+  A fresh wallet can recover HD execution accounts by matching its own Unshield history locally. Accounts
+  without that history are outside recovery scope, even if they hold public assets or DeFi positions.
   The user retains the execution EOA key and can manage its delegation.
 - **Core SDKs:** shared models, Engine, and Wallet expose account allocation, proof preparation,
   arbitrary calls, submission, and closure without requiring protocol-specific recipes.
@@ -193,6 +195,8 @@ UTXO 选择和 Groth16 proving 始终留在客户端。
   是执行 EOA。
 - **HTTP 提交：** 客户端选择直接提交或已配置的 HTTPS operator，通过签名报价、加密请求、持久化
   journal 和幂等重试支持代付 gas。
+- **账户恢复：** 用助记词恢复私有钱包历史，在本地匹配有本钱包 Unshield 记录的派生 EOA。
+  没有这类记录的 EOA，即使有公开资产或 DeFi 头寸，也不属于恢复范围；不新增公开归属表或存储。
 - **账户管理：** 已签名 Account 调用退出头寸、撤销批准和清空已跟踪资产。用户保留执行 EOA
   私钥，并可管理其 delegation。
 - **核心 SDK：** shared models、Engine、Wallet 提供账户分配、proof 准备、任意合约调用、提交和
