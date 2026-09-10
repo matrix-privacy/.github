@@ -45,7 +45,10 @@ integration tests are implemented; audited public deployment and product release
   signature and proof bind the selected nullifiers and action; DeFi sees the execution EOA as caller.
 - **HTTP submission:** clients choose direct submission or a configured HTTPS operator. Signed fee
   offers, encrypted requests, durable journals, and idempotent retries support sponsored transactions.
-- **Account management:** signed Account calls close positions, revoke approvals, and sweep tracked assets.
+  HTTP V2 supports private-note fees or a public ERC20 payment from E in the same Account execution;
+  the operator pays native gas. Pure private transfers go directly to Matrix with W's proof, without E.
+- **Account management:** signed Account calls close positions and revoke approvals. Closure defaults to
+  re-shielding supported assets, with an explicit public recipient option and HTTP/direct submission.
   A fresh wallet can discover HD execution accounts from its own Unshield history or a matching current
   Matrix delegation. Batch code scans distinguish used and delegated-only accounts and show readiness.
   Accounts with neither source remain outside discovery scope, even if they hold assets or DeFi positions.
@@ -68,6 +71,11 @@ Signed execution
        -> DeFi targets   signed calls from the execution EOA
        -> Matrix pool    optional shield of supported outputs
 
+Private transfer
+  -> W spending authorization and proof
+  -> Direct sender / HTTP broadcaster
+  -> Matrix pool         private recipients and private fee notes; no execution EOA
+
 Public data acceleration
   -> Merkle service      checkpoints, leaves, witnesses
   -> Subgraph            paginated event indexing
@@ -87,8 +95,14 @@ chosen operator or on-chain observers.
 Account batches revert when a call fails. Wallet checks tracked assets and token approvals after confirmation;
 remaining assets prevent closure and archive. The Account adds no generic state assertions. Protocol calldata
 controls trade limits, and quoted private outputs use the pool fees available at quote time.
+Native ingress preserves its existing atomic wrapping and Shield entry point. It does not add a separate
+user wrapping transaction. See the [complete user scenarios](https://github.com/matrix-privacy/design/blob/main/30_user_scenarios_and_public_token_broadcaster_fees.md).
 
 ### Projects
+
+The September 10 HTTP V2 source update passes 20/20 workspace checks, including real proofs, pool-only
+private transfers, public token fees, private closure, browser/Worker flows and clean candidate installation.
+HTTP and frontend Docker builds and local health checks pass. Public release remains subject to the gates below.
 
 | Project | Purpose | State |
 | --- | --- | --- |
@@ -199,7 +213,11 @@ UTXO 选择和 Groth16 proving 始终留在客户端。
 - **账户发现：** 匹配本钱包 Unshield 历史，或批量扫描派生 EOA 当前是否委托到已验证的 Matrix 实现。
   SDK/前端区分已用过与仅委托账户，并显示是否就绪；既无历史又无匹配委托的地址不在发现范围内。
   不新增公开归属表或存储，批量查询会向当前 RPC 暴露所查地址集合。
-- **账户管理：** 已签名 Account 调用退出头寸、撤销批准和清空已跟踪资产。用户保留执行 EOA
+- **两种服务费来源：** HTTP V2 可从私有 notes 收费，也可在同一笔 Account 执行中收取 E 的公开
+  ERC20；operator 始终支付链上原生币 gas。纯私有转账由 W 授权并生成 proof，直接提交 Matrix，
+  无需 E 或 7702 授权。
+- **账户管理：** 已签名 Account 调用退出头寸、撤销批准，默认将支持的资产重新入池；公开提款
+  是显式选项，两种去向均可通过 HTTP 或 direct 提交。用户保留执行 EOA
   私钥，并可管理其 delegation。
 - **核心 SDK：** shared models、Engine、Wallet 提供账户分配、proof 准备、任意合约调用、提交和
   关闭能力，无需为每个协议新增 recipe。
@@ -218,6 +236,11 @@ Web / Desktop
        -> Matrix pool    proof 校验与隐私资金转出
        -> DeFi targets   由执行 EOA 发起已签名调用
        -> Matrix pool    可选：将支持的输出重新 Shield
+
+纯私有转账
+  -> W 的花费授权与 proof
+  -> 直接发送钱包 / HTTP broadcaster
+  -> Matrix pool         私有收款与费用 notes，不经过执行 EOA
 
 公共数据加速
   -> Merkle service      checkpoint、leaf、witness
@@ -293,6 +316,10 @@ pnpm add --save-exact \
   dApp 浏览器。
 
 ### 当前重点
+
+2026 年 9 月 10 日 HTTP V2 源码更新已通过 20/20 综合验收，覆盖无 E 的纯私有转账、公开 Token
+服务费、私有关闭、真实证明、browser/Worker 及候选包干净安装；HTTP 和前端 Docker 构建与本地
+健康检查通过。原生币入池仍沿用原有单笔内部包装/授权/Shield 路径。
 
 - 从 clean build 重现 circuit artifacts 与 verification keys。
 - 保持不受信的公共数据边界和确定性的 JSON-RPC 恢复。
